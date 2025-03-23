@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+  rpc GetAuthenticated (AuthRequest) returns (AuthResponse);
+  rpc CreateUser (AuthRequest) returns (AuthResponse);
+}
+
+service Orders {
+  rpc GetOrders (OrderRequest) returns (OrderResponse);
+  rpc CreateOrders (CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+message CreateOrderRequest {
+  string customer_name = 1;
+  map<string, int32> orders = 2; 
+}
+
+message CreateOrderResponse {
+  string message = 1;
+  map<string, int32> orders = 2; 
+}
+
+message OrderRequest {
+  string customer_name = 1;
+}
+
+message OrderResponse {
+  string message = 1;
+  map<string, int32> orders = 2;
+}
+
+message AuthRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  string message = 1;
+  string token = 2;
+}
