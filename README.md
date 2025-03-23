@@ -1,4 +1,4 @@
-# grpc_redis
+# grpc_jwt_tls
 
 ## Step 0: Install Docker Desktop & Minikube
 
